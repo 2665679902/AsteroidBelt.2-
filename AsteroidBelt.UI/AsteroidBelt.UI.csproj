@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{523796BA-DFBA-4315-A02C-30C4216F501C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsteroidBelt.UI</RootNamespace>
+    <AssemblyName>AsteroidBelt.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\As_Main_3\Assets\Plugins\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\As_Main_3\Assets\Plugins\AsteroidBelt.UI.xml</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Component\EventComponent\ButtonEventTrigger.cs" />
+    <Compile Include="Component\EventComponent\InputFieldEventObserver.cs" />
+    <Compile Include="Component\EventComponent\InputFieldEventTrigger.cs" />
+    <Compile Include="Component\EventComponent\SliderEventObserver.cs" />
+    <Compile Include="Component\EventComponent\SliderEventTrigger.cs" />
+    <Compile Include="Component\EventComponent\TextEventObserver.cs" />
+    <Compile Include="Component\ViewComponent\HabitatDropdownGroup.cs" />
+    <Compile Include="EventHandler\ButtonEvents\Close_ModConfig_Root.cs" />
+    <Compile Include="EventHandler\ButtonEvents\HabitatDropdownGroupSave.cs" />
+    <Compile Include="EventHandler\ButtonEvents\0AsButtonEventHandler.cs" />
+    <Compile Include="EventHandler\ButtonEvents\HabitatDropdownGroupSetDefault.cs" />
+    <Compile Include="EventHandler\InputFieldEvents\0AsInputFieldEventHandler.cs" />
+    <Compile Include="EventHandler\InputFieldEvents\InputEnd_HabitatSizeText.cs" />
+    <Compile Include="EventHandler\SliderEvents\0AsSliderEventHandler.cs" />
+    <Compile Include="EventHandler\SliderEvents\HabitatDesignSizeChange.cs" />
+    <Compile Include="Model\UIManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIEvent\ButtonEvent.cs" />
+    <Compile Include="UIEvent\InputFieldEvent.cs" />
+    <Compile Include="UIEvent\SliderEvent.cs" />
+    <Compile Include="UIEvent\TextEvent.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\AsTool\3\AsTool.Unity\AsTool.Unity.csproj">
+      <Project>{dc07d478-5fa5-4a31-8d9b-d913e2ae596d}</Project>
+      <Name>AsTool.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\AsTool\3\AsTool\AsTool.csproj">
+      <Project>{f20e451c-0818-485a-bc91-a3ddd5626292}</Project>
+      <Name>AsTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AsteroidBelt.Data\AsteroidBelt.Data.csproj">
+      <Project>{3108fd38-9e1d-4048-845c-157ee925c298}</Project>
+      <Name>AsteroidBelt.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
