@@ -1,0 +1,1560 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AsTool</name>
+    </assembly>
+    <members>
+        <member name="T:AsTool.Assert.AsAssert">
+            <summary>
+            存放了一些断言，用于检测
+            </summary>
+        </member>
+        <member name="M:AsTool.Assert.AsAssert.Fatal(System.String,System.String,System.Int32)">
+            <summary>
+            抛出一个错误
+            </summary>
+            <param name="message">错误信息</param>
+            <param name="callerName">不需要填写</param>
+            <param name="line">不需要填写</param>
+            <exception cref="T:AsTool.Assert.AssertException.AsAssertException">将要抛出的错误</exception>
+        </member>
+        <member name="M:AsTool.Assert.AsAssert.NotNull``1(``0@,System.String,System.String,System.Int32)">
+            <summary>
+            断言对象不为Null，否则报错
+            </summary>
+            <typeparam name="T">要检测的对象类</typeparam>
+            <param name="o"></param>
+            <param name="callerName">不需要填写</param>
+            <param name="line">不需要填写</param>
+            <param name="message">错误信息</param>
+            <exception cref="T:AsTool.Assert.AssertException.AsNullException">参数 null 报错</exception>
+        </member>
+        <member name="M:AsTool.Assert.AsAssert.NotNull``1(System.Nullable{``0}@,System.String,System.String,System.Int32)">
+            <summary>
+            断言对象不为Null，否则报错
+            </summary>
+            <typeparam name="T">要检测的结构体</typeparam>
+            <param name="o"></param>
+            <param name="message">错误信息</param>
+            <param name="callerName">不需要填写</param>
+            <param name="line">不需要填写</param>
+            <exception cref="T:AsTool.Assert.AssertException.AsNullException">参数 null 报错</exception>
+        </member>
+        <member name="M:AsTool.Assert.AsAssert.IsFalse(System.Boolean,System.String,System.String,System.Int32)">
+            <summary>
+            断言此项应当为false，否则报错
+            </summary>
+            <param name="result">要判断的bool</param>
+            <param name="message">错误信息</param>
+            <param name="callerName">不需要填写</param>
+            <param name="line">不需要填写</param>
+            <exception cref="T:AsTool.Assert.AssertException.AsBoolException">参数 true 报错</exception>
+        </member>
+        <member name="M:AsTool.Assert.AsAssert.IsTrue(System.Boolean,System.String,System.String,System.Int32)">
+            <summary>
+            断言此项应当为true，否则报错
+            </summary>
+            <param name="result">要判断的bool</param>
+            <param name="message">错误信息</param>
+            <param name="callerName">不需要填写</param>
+            <param name="line">不需要填写</param>
+            <exception cref="T:AsTool.Assert.AssertException.AsBoolException">参数 true 报错</exception>
+        </member>
+        <member name="T:AsTool.Assert.AssertException.AsAssertException">
+            <summary>
+            所有AsAssert的错误的基类
+            </summary>
+        </member>
+        <member name="M:AsTool.Assert.AssertException.AsAssertException.#ctor(System.String)">
+            <summary>
+            构建时传入错误信息
+            </summary>
+            <param name="message">错误信息</param>
+        </member>
+        <member name="T:AsTool.Assert.AssertException.AsBoolException">
+            <summary>
+            断言 bool 值错误
+            </summary>
+        </member>
+        <member name="M:AsTool.Assert.AssertException.AsBoolException.#ctor(System.String)">
+            <summary>
+            构建时传入错误信息
+            </summary>
+            <param name="message">错误信息</param>
+        </member>
+        <member name="T:AsTool.Assert.AssertException.AsNullException">
+            <summary>
+            断言 null 值错误
+            </summary>
+        </member>
+        <member name="M:AsTool.Assert.AssertException.AsNullException.#ctor(System.String)">
+            <summary>
+            构建时传入错误信息
+            </summary>
+            <param name="message">错误信息</param>
+        </member>
+        <member name="T:AsTool.Event.AsEvent">
+            <summary>
+            用于触发和管理事件的工具类
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.Subscribe(System.String)">
+            <summary>
+            订阅一个事件, 获取目标事件订阅者
+            </summary>
+            <param name="id">事件名称</param>
+            <returns>返回一个事件观察者</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.Subscribe(System.String,System.Action)">
+            <summary>
+            订阅一个事件, 获取目标事件订阅者
+            </summary>
+            <param name="id">事件名称</param>
+            <param name="action">要设置的行为</param>
+            <returns>返回一个事件观察者</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.Subscribe``1(System.String,System.Action{``0})">
+            <summary>
+            订阅一个事件, 获取目标事件订阅者
+            </summary>
+            <param name="id">事件名称</param>
+            <param name="action">要设置的行为</param>
+            <returns>返回一个事件观察者</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.Subscribe``1(System.String,System.Func{``0,``0})">
+            <summary>
+            订阅一个事件, 获取目标事件订阅者
+            </summary>
+            <param name="id">事件名称</param>
+            <param name="function">要设置的行为, 行为返回值将作为下一个行为的传入值</param>
+            <returns>返回一个事件观察者</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.Trigger(System.String)">
+            <summary>
+            触发一个事件的无参方法
+            </summary>
+            <param name="id">事件id</param>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.Trigger``1(System.String,``0)">
+            <summary>
+            触发一个事件的无参方法和可以使用对应参数的方法
+            </summary>
+            <typeparam name="T">参数类型</typeparam>
+            <param name="id">事件id</param>
+            <param name="data">传入参数</param>
+            <returns>返回传入参数使用之后的值, 如果值丢失则会返回 default</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEvent.GetAsSubject(System.String)">
+            <summary>
+            获取一个事件主题
+            </summary>
+            <param name="id">事件名称</param>
+            <returns>目标主题</returns>
+        </member>
+        <member name="F:AsTool.Event.AsEventData._AsSubjects">
+            <summary>
+            内部持有的所有事件主题
+            </summary>
+        </member>
+        <member name="F:AsTool.Event.AsEventData._AsObservers">
+            <summary>
+            内部持有的所有事件观察者
+            </summary>
+        </member>
+        <member name="F:AsTool.Event.AsEventData._lock">
+            <summary>
+            保证事件信息线程安全的线程锁
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventData.GetSubject(System.String)">
+            <summary>
+            根据事件id名称获取主题
+            </summary>
+            <param name="id">id名称</param>
+            <returns>目标主题</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEventData.GetObserver(System.String,System.Type)">
+            <summary>
+            根据事件id名称获取所有订阅者
+            </summary>
+            <param name="id">事件id</param>
+            <param name="parameterType">目标事件的参数类型, 不可为null, 会返回所有可触发的观察者和无参观察者</param>
+            <returns>所有符合要求的观察者列表的浅拷贝</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEventData.GetObserver(System.String)">
+            <summary>
+            根据事件id名称获取所有无参订阅者
+            </summary>
+            <param name="id">事件id</param>
+            <returns>所有符合要求的观察者列表的浅拷贝</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEventData.GetNewAsObserver(System.String)">
+            <summary>
+            获取一个事件信息的订阅者
+            </summary>
+            <param name="id">要订阅的事件</param>
+            <returns>一个新的事件订阅者</returns>
+        </member>
+        <member name="T:AsTool.Event.AsEventIntermediary">
+            <summary>
+            事件中介者, 会将一个事件推送到另一个事件
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventIntermediary.SubscribeId">
+            <summary>
+            订阅的事件
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventIntermediary.TriggerId">
+            <summary>
+            要转发的事件
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventIntermediary.ParameterType">
+            <summary>
+            本事件中介者的参数类型, 如果事件传入参数不可被分配, 则转发不会被触发
+            </summary>
+        </member>
+        <member name="T:AsTool.Event.AsEventLoader">
+            <summary>
+            事件接收者加载工具
+            </summary>
+        </member>
+        <member name="F:AsTool.Event.AsEventLoader.EventObserver">
+            <summary>
+            所有由自动加载项注册的事件, 名字就是类型名
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventLoader.Load">
+            <summary>
+            加载所有事件接收者和转发者, 此函数不要手动调用
+            </summary>
+        </member>
+        <member name="T:AsTool.Event.AsEventObserver">
+            <summary>
+            事件观察者
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventObserver.Name">
+            <summary>
+            观察者的名字, 并不影响观察者的订阅主题, 仅作为debug方便使用
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventObserver.ParameterType">
+            <summary>
+            本观察者的参数类型, 如果事件传入参数不可被分配, 则此观察者持有的方法不会被触发
+            </summary>
+        </member>
+        <member name="F:AsTool.Event.AsEventObserver._behavior">
+            <summary>
+            本观察者的行为
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventObserver.Abandoned">
+            <summary>
+            返回本观察者是否被废弃
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.SetNull">
+            <summary>
+            置空本观察者
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.AbandonObserver">
+            <summary>
+            废弃本观察者, 此操作不可逆
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.SetBehavior(System.Action,System.Boolean)">
+            <summary>
+            设置行为
+            </summary>
+            <param name="action">要设置的行为</param>
+            <param name="catchException">是否捕获行为导致的异常(默认捕获)</param>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.SetBehavior``1(System.Action{``0},System.Boolean)">
+            <summary>
+            设置行为
+            </summary>
+            <typeparam name="T">行为可以传入任意参数(不建议使用结构体, 拆\装 箱会导致大量额外的消耗)</typeparam>
+            <param name="action">要设置的行为</param>
+            <param name="catchException">是否捕获行为导致的异常(默认捕获)</param>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.SetBehavior``1(System.Func{``0,``0},System.Boolean)">
+            <summary>
+            设置行为
+            </summary>
+            <typeparam name="T">行为可以传入任意参数(不建议使用结构体, 拆\装 箱会导致大量额外的消耗)</typeparam>
+            <param name="function">要设置的行为, 行为返回参数就会被传递给之后的行为</param>
+            <param name="catchException">是否捕获行为导致的异常(默认捕获)</param>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.DoBehavior(System.Object)">
+            <summary>
+            执行行为, 如果行为被放弃, 则不会再执行
+            </summary>
+            <param name="obj">数据</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEventObserver.#ctor">
+            <summary>
+            私有构建
+            </summary>
+        </member>
+        <member name="T:AsTool.Event.AsEventSubject">
+            <summary>
+            一个事件主题
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventSubject.#ctor(System.String)">
+            <summary>
+            私有构建
+            </summary>
+            <param name="id">事件主题</param>
+        </member>
+        <member name="F:AsTool.Event.AsEventSubject.Id">
+            <summary>
+            事件名称, 该名称是唯一的
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventSubject.Trigger">
+            <summary>
+            触发一个事件的无参方法
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventSubject.Trigger``1(``0)">
+            <summary>
+            触发一个事件的无参方法和可以使用对应参数的方法
+            </summary>
+            <typeparam name="T">参数类型</typeparam>
+            <param name="data">传入参数</param>
+            <returns>返回传入参数使用之后的值, 如果值丢失则会返回 default</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEventSubject.Trigger(System.Object,System.Type)">
+            <summary>
+            触发一个事件的无参方法和可以使用对应参数的方法
+            </summary>
+            <param name="data">传入参数</param>
+            <param name="parameterType">参数类型</param>
+            <returns>返回传入参数使用之后的值, 如果值丢失则会返回 null</returns>
+        </member>
+        <member name="T:AsTool.Event.AsEventReceiver">
+            <summary>
+            事件接收者基类, 拥有此基类的类型必须拥有一个无参构造, 在加载时会生成此类型实例以实现注册
+            </summary>
+        </member>
+        <member name="P:AsTool.Event.AsEventReceiver.Id">
+            <summary>
+            要注册的Id
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventReceiver.Action(System.Object)">
+            <summary>
+            接收到事件信息之后的执行行为
+            </summary>
+            <param name="data">事件信息</param>
+            <returns>修改后的事件信息</returns>
+        </member>
+        <member name="P:AsTool.Event.AsEventReceiver.ParameterType">
+            <summary>
+            本事件接收者的参数类型, 如果事件传入参数不可被分配, 则此观察者持有的方法不会被触发
+            </summary>
+        </member>
+        <member name="T:AsTool.Event.AsEventReceiver`1">
+            <summary>
+            事件接收者基类, 拥有此基类的类型必须拥有一个无参构造, 在加载时会生成此类型实例以实现注册
+            </summary>
+            <typeparam name="T">本事件接收者的参数类型, 如果事件传入参数不可被分配, 则此观察者持有的方法不会被触发</typeparam>
+        </member>
+        <member name="P:AsTool.Event.AsEventReceiver`1.ParameterType">
+            <summary>
+            默认参数类型为输入的参数类型
+            </summary>
+        </member>
+        <member name="M:AsTool.Event.AsEventReceiver`1.Action(`0)">
+            <summary>
+            接收到事件信息之后的执行行为
+            </summary>
+            <param name="data">事件信息</param>
+            <returns>修改后的事件信息</returns>
+        </member>
+        <member name="M:AsTool.Event.AsEventReceiver`1.Action(System.Object)">
+            <summary>
+            默认输出新函数的封装
+            </summary>
+            <param name="data">事件信息</param>
+            <returns>修改后的事件信息</returns>
+        </member>
+        <member name="T:AsTool.Common.Extension.AsEnumerableExtension">
+            <summary>
+            可迭代项的一些拓展方法
+            </summary>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsElementAt(System.Collections.IEnumerable,System.Int32)">
+            <summary>
+            获取某一固定位置的元素
+            </summary>
+            <param name="list">要查找的可迭代项</param>
+            <param name="num">序列位置</param>
+            <returns>找到返回，找不到返回null</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsForech``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            处理列表的每一项并输出 [ 优先使用 Foreach ]
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">输入的可迭代项</param>
+            <param name="act">处理函数</param>
+            <returns>原列表</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsForech``1(System.Collections.IEnumerable,System.Action{``0})">
+            <summary>
+            处理列表的每一项并输出 [ 优先使用 Foreach ]
+            </summary>
+            <param name="list">输入的可迭代项</param>
+            <param name="act">处理函数</param>
+            <returns>原列表</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsSelect(System.Collections.IEnumerable,System.Func{System.Object,System.Object})">
+            <summary>
+            处理列表的每一项并输出新列表 [ 优先使用 Select]
+            </summary>
+            <param name="list">输入列表</param>
+            <param name="func">处理函数</param>
+            <returns>处理结果</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsSelect``1(System.Collections.IEnumerable,System.Func{System.Object,``0})">
+            <summary>
+            处理列表的每一项并输出新列表 [ 优先使用 Select]
+            </summary>
+            <param name="list">输入列表</param>
+            <param name="func">处理函数</param>
+            <returns>处理结果</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsAddAfter``1(System.Collections.Generic.IList{``0},``0,``0,System.Boolean)">
+            <summary>
+            在指定的集合中找到目标，在其后增加一项
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">原集合</param>
+            <param name="target">目标</param>
+            <param name="someThingAdd">增加项</param>
+            <param name="strict">如果没找到是不是放弃添加 （否则会加载末尾）</param>
+            <returns>如果成功找到目标并添加返回真， 否则返回假</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsTryRemove``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            尝试移除列表的某一项
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">原集合</param>
+            <param name="target">目标项</param>
+            <returns>成功返回 true 否则返回 false</returns>
+            <exception cref="T:System.ArgumentNullException">输入的参数都不能为 null</exception>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsRemoveNesting``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            去除一层列表项的嵌套
+            </summary>
+            <typeparam name="T">要累加的</typeparam>
+            <param name="list"></param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsFindRepetition``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            尝试在列表里寻找重复项
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">原集合</param>
+            <returns>输出重复项的键值对列表</returns>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsFirst(System.Collections.IEnumerable,System.Func{System.Object,System.Boolean})">
+            <summary>
+            查找第一个符合项
+            </summary>
+            <param name="list">原集合</param>
+            <param name="func">比较方法</param>
+            <returns>第一个符合项，如果没有就返回 null</returns>
+            <exception cref="T:System.ArgumentNullException">输入的参数都不能为 null</exception>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsFindLast``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            查找最后一个符合项
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">原集合</param>
+            <param name="func">比较方法</param>
+            <returns>最后符合项的序列号，如果没有就返回 -1</returns>
+            <exception cref="T:System.ArgumentNullException">输入的参数都不能为 null</exception>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsFindLast``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            查找最后一个符合项
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">原集合</param>
+            <param name="target">符合项</param>
+            <returns>最后符合项的序列号，如果没有就返回 -1</returns>
+            <exception cref="T:System.ArgumentNullException">输入的参数都不能为 null</exception>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsEnumerableExtension.AsRandGet``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Collections.Generic.IEnumerable{``0},System.Random)">
+            <summary>
+            在集合中随机取出指定项
+            </summary>
+            <typeparam name="T">输入类型</typeparam>
+            <param name="list">原集合</param>
+            <param name="num">取出数量</param>
+            <param name="except">排除的集合</param>
+            <param name="random">随机数激发工具</param>
+            <returns>取出的新集合</returns>
+        </member>
+        <member name="T:AsTool.Common.Extension.AsStringExtension">
+            <summary>
+            字符串的拓展方法
+            </summary>
+        </member>
+        <member name="M:AsTool.Common.Extension.AsStringExtension.AsTryRemove(System.String,System.String[])">
+            <summary>
+            尝试移除所有相关字符串，并返回新字符串
+            </summary>
+            <param name="str">输入字符串</param>
+            <param name="target">要移除的字符串</param>
+            <returns>移除结果</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.Touch(System.String,System.Boolean)">
+            <summary>
+            尝试触碰一个地址，如果该地址不存在就创建一个
+            </summary>
+            <param name="path">地址（绝对）</param>
+            <param name="FileName">如果是一个文件的地址为真，文件夹地址为假</param>
+            <returns>该地址是否已经存在</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.FileDestory(System.String,System.Boolean)">
+            <summary>
+            输入一个文件路径，如果存在目标文件或者目录就删除
+            </summary>
+            <param name="path">路径</param>
+            <param name="FileName">如果是一个文件的地址为真，文件夹地址为假</param>
+            <returns>是否找到并删除</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.WriteFile(System.String,System.String)">
+            <summary>
+            尝试向一个文件写入所有字符串
+            </summary>
+            <param name="content">字符串内容</param>
+            <param name="path">写入路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.WriteFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            批量地写入文件
+            </summary>
+            <param name="content">文件内容 -> 文件名(带后缀名) - 内容</param>
+            <param name="path">写入文件的文件夹</param>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.ReadFile(System.String)">
+            <summary>
+            尝试读入一个文件的所有字符串
+            </summary>
+            <param name="path">路径</param>
+            <returns>字符串内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.ReadLines(System.String)">
+            <summary>
+            以行为单位读入文件
+            </summary>
+            <param name="path">路径</param>
+            <returns>字符串内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.ReadFiles(System.String)">
+            <summary>
+            批量地读取文件
+            </summary>
+            <param name="path">写入文件的文件夹</param>
+            <returns>文件名 - 内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.WriteByteFile(System.Byte[],System.String)">
+            <summary>
+            尝试向一个文件写入所有二进制内容
+            </summary>
+            <param name="content">二进制内容</param>
+            <param name="path">写入路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsIOActions.ReadByteFile(System.String)">
+            <summary>
+            尝试读入一个文件的所有二进制内容
+            </summary>
+            <param name="path">路径</param>
+            <returns>二进制内容</returns>
+        </member>
+        <member name="T:AsTool.IO.AsIOConfig">
+            <summary>
+            数据输入输出的各类信息
+            </summary>
+        </member>
+        <member name="P:AsTool.IO.AsIOConfig.FileOptionLock">
+            <summary>
+            所有的操作文件行为在操作时都需要持有此锁以保证线程安全
+            </summary>
+        </member>
+        <member name="F:AsTool.IO.AsIOConfig.modLoacalPath">
+            <summary>
+            本地文件夹的根目录
+            </summary>
+        </member>
+        <member name="P:AsTool.IO.AsIOConfig.LocalPath">
+            <summary>
+            本地文件夹的根目录
+            </summary>
+        </member>
+        <member name="F:AsTool.IO.AsIOConfig.targetPath">
+            <summary>
+            目标文件夹的根目录
+            </summary>
+        </member>
+        <member name="P:AsTool.IO.AsIOConfig.TargetPath">
+            <summary>
+            目标文件夹的根目录
+            </summary>
+        </member>
+        <member name="M:AsTool.IO.AsIOConfig.GetLoaclFullPath(System.String[])">
+            <summary>
+            混合所有相对路径，获得程序集 (mod文件) 所在的绝对根路径，不会进行null检查
+            </summary>
+            <param name="paths">输入的相对路径</param>
+            <returns>绝对路径</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOConfig.GetTargetFullPath(System.String[])">
+            <summary>
+            混合所有相对路径，获得主程序集所在绝对根路径，不会进行null检查
+            </summary>
+            <param name="paths">输入的相对路径</param>
+            <returns>绝对路径</returns>
+        </member>
+        <member name="M:AsTool.IO.AsIOConfig.SetPath(System.String,System.String)">
+            <summary>
+            设置本地文件夹和主程序集文件夹
+            </summary>
+            <param name="localpath">程序集 (mod文件)文件夹的根目录</param>
+            <param name="targetpath">主程序集文件夹的根目录</param>
+        </member>
+        <member name="T:AsTool.IO.AsFileManager">
+            <summary>
+            管理文件处理方法的工具类
+            </summary>
+        </member>
+        <member name="T:AsTool.IO.AsFileManager.Local">
+            <summary>
+            管理本地文件
+            </summary>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.Touch(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            尝试触碰一个本地地址，如果该地址不存在就创建一个
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <param name="fileName">是否输入的是文件名</param>
+            <returns>该地址是否存在</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.WriteFile(System.String,System.String,System.Boolean)">
+            <summary>
+            尝试向一个本地文件夹的文件写入所有字符串
+            </summary>
+            <param name="content">字符串内容</param>
+            <param name="path">写入路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.WriteFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean)">
+            <summary>
+            尝试向一个本地文件夹批量地写入文件
+            </summary>
+            <param name="content">文件内容 -> 文件名(带后缀名) - 内容</param>
+            <param name="path">写入文件的文件夹</param>
+            <param name="absolutePath">是否是绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.ReadFile(System.String,System.Boolean)">
+            <summary>
+            尝试读入一个本地文件夹的文件的所有字符串
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>字符串内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.ReadLines(System.String,System.Boolean)">
+            <summary>
+            尝试读入一个本地文件夹的以行为单位的所有字符串
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>字符串内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.ReadFiles(System.String,System.Boolean)">
+            <summary>
+            尝试从一个本地文件夹批量地读取文件
+            </summary>
+            <param name="path">写入文件的文件夹</param>
+            <param name="absolutePath">是否是绝对路径</param>
+            <returns>文件名 - 内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.WriteByteFile(System.Byte[],System.String,System.Boolean)">
+            <summary>
+            尝试向一个本地文件文件写入所有二进制内容
+            </summary>
+            <param name="content">二进制内容</param>
+            <param name="path">写入路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.ReadByteFile(System.String,System.Boolean)">
+            <summary>
+            尝试读入一个本地文件文件的所有二进制内容
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>二进制内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.FileDestory(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            输入一个文件路径，如果存在目标文件或者目录就删除
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <param name="fileName">是否是文件名</param>
+            <returns>是否找到并删除</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.Copy(System.String,System.String,System.Boolean)">
+            <summary>
+            将一个文件从本地文件夹拷贝到目标文件夹
+            </summary>
+            <param name="localpath">本地路径</param>
+            <param name="targetpath">目标路径</param>
+            <param name="absolutePath">是否是绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.LoadFile(System.String,System.String,System.Boolean)">
+            <summary>
+            加载本地文件夹的所有文件到目标文件夹
+            </summary>
+            <param name="localpath">本地文件夹</param>
+            <param name="targetpath">目标文件夹</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Local.UnLoadFile(System.String,System.Boolean)">
+            <summary>
+            将本次加载的所有文件都删除
+            </summary>
+            <param name="localpath">要删除的加载的文件夹</param>
+            <param name="absolutePath">是否使用了绝对路径</param>
+        </member>
+        <member name="T:AsTool.IO.AsFileManager.Target">
+            <summary>
+            管理目标文件
+            </summary>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.Touch(System.String,System.Boolean)">
+            <summary>
+            尝试触碰一个地址，如果该地址不存在就创建一个
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>该地址是否存在</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.WriteFile(System.String,System.String,System.Boolean)">
+            <summary>
+            尝试向一个目标文件夹的文件写入所有字符串
+            </summary>
+            <param name="content">字符串内容</param>
+            <param name="path">写入路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.WriteFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean)">
+            <summary>
+            尝试向一个目标文件夹批量地写入文件
+            </summary>
+            <param name="content">文件内容 -> 文件名(带后缀名) - 内容</param>
+            <param name="path">写入文件的文件夹</param>
+            <param name="absolutePath">是否是绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.ReadFile(System.String,System.Boolean)">
+            <summary>
+            尝试读入一个目标文件夹的文件的所有字符串
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>字符串内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.ReadLines(System.String,System.Boolean)">
+            <summary>
+            尝试读入一个目标文件夹的以行为单位的所有字符串
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>字符串内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.ReadFiles(System.String,System.Boolean)">
+            <summary>
+            尝试从一个目标文件夹批量地读取文件
+            </summary>
+            <param name="path">写入文件的文件夹</param>
+            <param name="absolutePath">是否是绝对路径</param>
+            <returns>文件名 - 内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.WriteByteFile(System.Byte[],System.String,System.Boolean)">
+            <summary>
+            尝试向一个目标文件文件写入所有二进制内容
+            </summary>
+            <param name="content">二进制内容</param>
+            <param name="path">写入路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.ReadByteFile(System.String,System.Boolean)">
+            <summary>
+            尝试读入一个目标文件文件的所有二进制内容
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <returns>二进制内容</returns>
+        </member>
+        <member name="M:AsTool.IO.AsFileManager.Target.FileDestory(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            输入一个文件路径，如果存在目标文件或者目录就删除
+            </summary>
+            <param name="path">路径</param>
+            <param name="absolutePath">是否输入了绝对路径</param>
+            <param name="fileName">是否是文件名</param>
+            <returns>是否找到并删除</returns>
+        </member>
+        <member name="T:AsTool.Manager.LoadManager.AsLoadAttribute">
+            <summary>
+            需要加载的无参静态方法的标签
+            </summary>
+        </member>
+        <member name="F:AsTool.Manager.LoadManager.AsLoadAttribute.Priority">
+            <summary>
+            加载优先级，优先级越高， 加载顺序越靠前
+            </summary>
+        </member>
+        <member name="M:AsTool.Manager.LoadManager.AsLoadAttribute.#ctor(System.Int32)">
+            <summary>
+            在生成标签时确定优先级
+            </summary>
+            <param name="priority">优先级</param>
+        </member>
+        <member name="T:AsTool.Manager.LoadManager.AsLoadManager">
+            <summary>
+            用于执行所有需要加载的无参静态方法
+            </summary>
+        </member>
+        <member name="T:AsTool.Manager.LoadManager.AsLoadManager.LoadMethodItem">
+            <summary>
+            用于记载加载项的单个类
+            </summary>
+        </member>
+        <member name="F:AsTool.Manager.LoadManager.AsLoadManager.LoadMethodItem.Priority">
+            <summary>
+            加载优先级，优先级越高， 加载顺序越靠前
+            </summary>
+        </member>
+        <member name="F:AsTool.Manager.LoadManager.AsLoadManager.LoadMethodItem.Info">
+            <summary>
+            方法信息
+            </summary>
+        </member>
+        <member name="M:AsTool.Manager.LoadManager.AsLoadManager.LoadMethodItem.#ctor(AsTool.Reflection.AsType.AsMemberInfo)">
+            <summary>
+            构建一个加载项
+            </summary>
+            <param name="info">成员信息</param>
+        </member>
+        <member name="P:AsTool.Manager.LoadManager.AsLoadManager.Loaded">
+            <summary>
+            是否已经加载完成
+            </summary>
+        </member>
+        <member name="P:AsTool.Manager.LoadManager.AsLoadManager.AssemblieLoaded">
+            <summary>
+            返回所有将会被加载的程序集, 如果还没加载则返回 null
+            </summary>
+        </member>
+        <member name="M:AsTool.Manager.LoadManager.AsLoadManager.StartLoad">
+            <summary>
+            执行所有需要加载的函数, 如果已经执行过一次了, 则此函数不会生效
+            </summary>
+        </member>
+        <member name="T:AsTool.Log.LogUtility.LogCore">
+            <summary>
+            初始化时构建文件
+            </summary>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogCore.#cctor">
+            <summary>
+            初始化时构建文件
+            </summary>
+        </member>
+        <member name="P:AsTool.Log.LogUtility.LogCore.Logging">
+            <summary>
+            Log事件触发时记录
+            </summary>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogCore.DoLog(AsTool.Log.LogUtility.LogSetter@,System.Object@,System.String,System.String,System.Int32,AsTool.Log.LogUtility.LogLevel)">
+            <summary>
+            进行Log行为
+            </summary>
+            <param name="logSetter">当前设置</param>
+            <param name="message">传入信息</param>
+            <param name="callerName">调用的函数的名字</param>
+            <param name="fileName">调用的文件地址</param>
+            <param name="line">当前行数</param>
+            <param name="level">Log等级</param>
+        </member>
+        <member name="T:AsTool.Log.LogUtility.LogLevel">
+            <summary>
+            Log的等级
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogLevel.Debug">
+            <summary>
+            调试级
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogLevel.Infor">
+            <summary>
+            一般级
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogLevel.Error">
+            <summary>
+            错误级
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogLevel.Fatal">
+            <summary>
+            崩溃级
+            </summary>
+        </member>
+        <member name="T:AsTool.Log.LogUtility.LogMessage">
+            <summary>
+            Log信息载体
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.content">
+            <summary>
+            消息的具体内容
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.callerName">
+            <summary>
+            调用方法的名字
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.fileName">
+            <summary>
+            调用的文件名
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.line">
+            <summary>
+            调用代码所在行
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.level">
+            <summary>
+            该信息等级
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.NeedTime">
+            <summary>
+            是否需要时间
+            </summary>
+        </member>
+        <member name="F:AsTool.Log.LogUtility.LogMessage.NeedDetail">
+            <summary>
+            是否需要细节
+            </summary>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogMessage.#ctor(System.String,System.String,System.String,System.Int32,AsTool.Log.LogUtility.LogLevel,System.Boolean,System.Boolean)">
+            <summary>
+            构建信息方法
+            </summary>
+            <param name="content">信息主体内容</param>
+            <param name="callerName">调用的函数</param>
+            <param name="fileName">调用文件的名字</param>
+            <param name="line">调用行</param>
+            <param name="level">log等级</param>
+            <param name="needTime">是否需要时间</param>
+            <param name="needDetail">是否需要细节</param>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogMessage.Formate2String(System.Boolean)">
+            <summary>
+            将信息转化为字符串
+            </summary>
+            <param name="richText">是否是富文本格式</param>
+            <returns>转换结果</returns>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogMessage.ToString">
+            <summary>
+            默认转换为普通的格式
+            </summary>
+            <returns>内部信息</returns>
+        </member>
+        <member name="T:AsTool.Log.LogUtility.LogSetter">
+            <summary>
+            用于<see cref="T:AsLog"/>的设置，可以加载此设置以更改<see cref="T:AsLog"/>状态
+            </summary>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogSetter.#ctor(AsTool.Log.LogUtility.LogLevel,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            构建一个设置者
+            </summary>
+            <param name="level">Log的允许记录等级</param>
+            <param name="needTime">是否要记录时间</param>
+            <param name="needDetail">是否要记录细节</param>
+            <param name="isAble">是否允许log记录</param>
+        </member>
+        <member name="P:AsTool.Log.LogUtility.LogSetter.Level">
+            <summary>
+            当前log许可等级，等级低于当前的log不会被触发
+            </summary>
+        </member>
+        <member name="P:AsTool.Log.LogUtility.LogSetter.NeedTime">
+            <summary>
+            是否需要显示时间
+            </summary>
+        </member>
+        <member name="P:AsTool.Log.LogUtility.LogSetter.NeedDetail">
+            <summary>
+            是否需要显示细节
+            </summary>
+        </member>
+        <member name="P:AsTool.Log.LogUtility.LogSetter.IsAble">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+        <member name="M:AsTool.Log.LogUtility.LogSetter.ToString">
+            <summary>
+            转换为字符串的方法，方便debug
+            </summary>
+            <returns>转换结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Deserializer.TryDeserialize(System.Type,System.Xml.XmlElement,System.Object@,System.Object)">
+            <summary>
+            尝试反序列化一个节点
+            </summary>
+            <param name="instanceInput">特殊是咯需要提前生成的采用此入口</param>
+            <param name="type">节点反序列化成的类型</param>
+            <param name="xmlElement">节点本身</param>
+            <param name="instance">输出结果</param>
+            <returns>是否反序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Deserializer.TryDeserializeSimpleValue(System.String,System.Type,System.Xml.XmlElement,System.Object@)">
+            <summary>
+            尝试反序列化为简单类型
+            </summary>
+            <param name="name">要反序列化的标签</param>
+            <param name="type">简单类型</param>
+            <param name="value">输出结果</param>
+            <param name="xmlElement">要查找的类型</param>
+            <returns>是否反序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Deserializer.TryDeserializeSimpleIList(System.Type,System.Xml.XmlElement,System.Object@)">
+            <summary>
+            尝试反序列化为IList
+            </summary>
+            <param name="type">节点的类型</param>
+            <param name="value">输出结果</param>
+            <param name="xmlElement">节点本身</param>
+            <returns>是否反序列化成功</returns>
+            <exception cref="T:System.Exception">反序列化失败触发</exception>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Deserializer.TryDeserializeSimpleIDictionary(System.Type,System.Xml.XmlElement,System.Object@)">
+            <summary>
+            反序列化字典
+            </summary>
+            <param name="type">目标类型</param>
+            <param name="xmlElement">节点本身</param>
+            <param name="value">反序列化结果</param>
+            <returns>是否反序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Deserializer.TryDeserializeDefault(System.Type,System.Xml.XmlElement,System.Object@)">
+            <summary>
+            尝试序列化自定义的结构体和类
+            </summary>
+            <param name="type">目标类型</param>
+            <param name="xmlElement">节点本身</param>
+            <param name="value">反序列化结果</param>
+            <returns>是否反序列化成功</returns>
+            <exception cref="T:System.Exception">反序列化失败触发</exception>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.ReflectionSerializer.SerializeToNode(System.Object)">
+            <summary>
+            采取保守方案序列化简单类型的字段和属性，不保证基类的完整构建
+            </summary>
+            <param name="input">输入</param>
+            <returns>序列化结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.ReflectionSerializer.DeserializeFromNode(System.Xml.XmlElement,System.Type)">
+            <summary>
+            尝试将一个XmlElement反序列化为一个类型
+            </summary>
+            <param name="root">根节点</param>
+            <param name="type">目标类型</param>
+            <returns>反序列化结果</returns>
+        </member>
+        <member name="P:AsTool.Reflection.AsSerialization.Serializer.TargetFlag">
+            <summary>
+            查找数据类型
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Serializer.TrySerialize(System.String,System.Object,System.Xml.XmlDocument,System.Xml.XmlElement@)">
+            <summary>
+            尝试序列化入口
+            </summary>
+            <param name="name">下级节点的名字</param>
+            <param name="value">节点的值</param>
+            <param name="document">要写入的文档</param>
+            <param name="xmlElement">根节点</param>
+            <returns>是否序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Serializer.TrySpecialSerialize(System.String,System.Object,System.Xml.XmlDocument,System.Xml.XmlElement@)">
+            <summary>
+            尝试序列化列表、字典、数组、简单类型
+            </summary>
+            <param name="name">下级节点的名字</param>
+            <param name="value">节点的值</param>
+            <param name="document">要写入的文档</param>
+            <param name="xmlElement">根节点</param>
+            <returns>是否序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Serializer.TrySerializeSimpleValue(System.String,System.Object,System.Xml.XmlElement@)">
+            <summary>
+            尝试序列化简单类型
+            </summary>
+            <param name="name">下级节点的名字</param>
+            <param name="value">节点的值</param>
+            <param name="xmlElement">根节点</param>
+            <returns>是否序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Serializer.TrySerializeIList(System.String,System.Object,System.Xml.XmlDocument,System.Xml.XmlElement@)">
+            <summary>
+            尝试序列化列表、数组
+            </summary>
+            <param name="name">下级节点的名字</param>
+            <param name="value">节点的值</param>
+            <param name="document">要写入的文档</param>
+            <param name="xmlElement">根节点</param>
+            <returns>是否序列化成功</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Serializer.TrySerializeIDictionary(System.String,System.Object,System.Xml.XmlDocument,System.Xml.XmlElement@)">
+            <summary>
+            尝试序列化字典
+            </summary>
+            <param name="name">下级节点的名字</param>
+            <param name="value">节点的值</param>
+            <param name="document">要写入的文档</param>
+            <param name="xmlElement">根节点</param>
+            <returns>是否序列化成功</returns>
+            <exception cref="T:System.Exception">序列化失败事件</exception>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.Serializer.TrySerializeDefault(System.String,System.Object,System.Xml.XmlDocument,System.Xml.XmlElement@)">
+            <summary>
+            尝试序列化自定义的结构体和类
+            </summary>
+            <param name="name">下级节点的名字</param>
+            <param name="value">节点的值</param>
+            <param name="document">要写入的文档</param>
+            <param name="xmlElement">根节点</param>
+            <returns>是否序列化成功</returns>
+            <exception cref="T:System.Exception">序列化失败事件</exception>
+        </member>
+        <member name="P:AsTool.Reflection.AsSerialization.SerializerCommonUtility.All">
+            <summary>
+            要序列化的目标
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.SerializerCommonUtility.GetValues(System.Object@)">
+            <summary>
+            获取所有的成员信息
+            </summary>
+            <param name="input">要获取的对象</param>
+            <returns>获取结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.SerializerCommonUtility.IsSimpleType(System.Type)">
+            <summary>
+            判断 type 是否是一个可以简单地转为字符串而不丢失信息的类型
+            </summary>
+            <param name="type">类型</param>
+            <returns>是否是简单类型</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.SerializerCommonUtility.TryParseSimpleType(System.String,System.Type,System.Object@)">
+            <summary>
+            尝试反序列化简单类型
+            </summary>
+            <param name="str">反序列化的源字符串</param>
+            <param name="type">目标类型</param>
+            <param name="result">结果，失败为null</param>
+            <returns>失败返回 false ，成功返回 true</returns>
+            <exception cref="T:System.ArgumentNullException">参数不可为 null</exception>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.SerializerCommonUtility.CatchMethod(System.Object,System.String,System.Type[])">
+            <summary>
+            尝试获取方法
+            </summary>
+            <param name="o">要获取方法的实例</param>
+            <param name="name">方法的名字</param>
+            <param name="arguments">方法的参数</param>
+            <returns>方法</returns>
+            <exception cref="T:System.ArgumentNullException">参数不可为 null 或 空</exception>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.SerializerCommonUtility.GetDefaultPrimitiveValue(System.Type)">
+            <summary>
+            尝试获取基元类型或字符串的默认值
+            </summary>
+            <param name="type">要获取的基元类型或字符串</param>
+            <returns>默认值（不是就返回null）</returns>
+            <exception cref="T:System.ArgumentNullException">参数不可为 null</exception>
+        </member>
+        <member name="P:AsTool.Reflection.AsSerialization.SerializerCommonUtility.DontSerializeAttribute">
+            <summary>
+            防止序列化的标签
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsSerialization.SerializerCommonUtility.NeedSerilize(System.Reflection.MemberInfo)">
+            <summary>
+            判断字段、属性是否需要序列化
+            </summary>
+            <param name="info">要判断的字段</param>
+            <returns>是否应被序列化</returns>
+        </member>
+        <member name="T:AsTool.Reflection.AsSerialization.AsNoSerializeAttribute">
+            <summary>
+            阻止此 字段/属性 被序列化, 可继承
+            </summary>
+        </member>
+        <member name="T:AsTool.Reflection.AsType">
+            <summary>
+            反射工具类
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType.All">
+            <summary>
+            搜索所有的对象
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._asTypes">
+            <summary>
+            单次储存所有生成的反射类
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._lock">
+            <summary>
+            线程锁
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.Count">
+            <summary>
+            储存的反射类的数量
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.Clear">
+            <summary>
+            清空储存的反射类
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.GetAsType(System.Type)">
+            <summary>
+            获取反射工具，线程安全
+            </summary>
+            <param name="type">要获取工具的对象类</param>
+            <returns>返回工具类</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsSerialize(System.Object)">
+            <summary>
+            序列化此类
+            </summary>
+            <param name="o">要序列化的类</param>
+            <returns>序列化结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsDeserialize(System.Xml.XmlElement,System.Type)">
+            <summary>
+            反序列化根节点为某一类
+            </summary>
+            <param name="root">要反序列化的节点</param>
+            <param name="type">反序列化目标</param>
+            <returns>反序列化结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.GetMemberInfoFrom(System.Reflection.Assembly,System.Type)">
+            <summary>
+            从目标范围中通过属性类型查找成员
+            </summary>
+            <param name="assembly">从该程序集中查找</param>
+            <param name="attributeType">属性类型</param>
+            <returns>查找结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.GetMemberInfoFrom(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.Type)">
+            <summary>
+            从目标范围中通过属性类型查找成员
+            </summary>
+            <param name="assemblys">从这些程序集中查找</param>
+            <param name="attributeType">属性类型</param>
+            <returns>查找结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.GetAnyAsTypesFrom(System.Reflection.Assembly,System.Type[])">
+            <summary>
+            通过基类寻找匹配任意基类(不包括基类本身)的类型
+            </summary>
+            <param name="assembly">要查找的程序集</param>
+            <param name="baseTypes">要匹配的基类</param>
+            <returns>匹配结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.#ctor(System.Type)">
+            <summary>
+            构建并保存类
+            </summary>
+            <param name="type">要构建反射工具的类</param>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._type">
+            <summary>
+            构建反射工具的对象类
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._compelInitFunc">
+            <summary>
+            强制构建目标函数的方法
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.CompelInit">
+            <summary>
+            强制获取目标类型的实体，如果构造失败返回null
+            </summary>
+            <returns>实例化的对象</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.Init(System.Object[])">
+            <summary>
+            查找对应参数的构造方案
+            </summary>
+            <param name="arguments">传入的参数</param>
+            <returns>实例化的对象，未找到构造函数返回null</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.BuildMemberInfo">
+            <summary>
+            构建值展示
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._members">
+            <summary>
+            所有成员访问
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.Members">
+            <summary>
+            所有成员访问
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._fieldAndPropertyMembers">
+            <summary>
+            所有字段和属性成员
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.FieldAndPropertyMembers">
+            <summary>
+            所有字段和属性成员
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType._membersAttributeTypes">
+            <summary>
+            本类型的成员包含的所有属性类型
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.MembersAttributeTypes">
+            <summary>
+            本类型的成员包含的所有属性类型
+            </summary>
+        </member>
+        <member name="T:AsTool.Reflection.AsType.AsMemberInfo">
+            <summary>
+            显示一个值并取得其获取和设置方法
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType.AsMemberInfo.MemberInfo">
+            <summary>
+            反射对象
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType.AsMemberInfo.GetValueFunc">
+            <summary>
+            获取该值的委托
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType.AsMemberInfo.SetValueFunc">
+            <summary>
+            设置该值的委托
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType.AsMemberInfo.MemberType">
+            <summary>
+            该成员的类型
+            </summary>
+        </member>
+        <member name="F:AsTool.Reflection.AsType.AsMemberInfo.IsStatic">
+            <summary>
+            本实例是否是静态的
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.AsMemberInfo.IsProperty">
+            <summary>
+            返回本实例是否是属性
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.AsMemberInfo.IsField">
+            <summary>
+            返回本实例是否是字段
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.AsMemberInfo.IsMethod">
+            <summary>
+            返回本实例是否是函数
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.AsMemberInfo.IsAutomaticallyGenerated">
+            <summary>
+            该成员是否由系统自动生成
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.AsMemberInfo.Setable">
+            <summary>
+            该值是否可以设置
+            </summary>
+        </member>
+        <member name="P:AsTool.Reflection.AsType.AsMemberInfo.Getable">
+            <summary>
+            该值是否可以获取
+            </summary>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsMemberInfo.#ctor(System.Reflection.MemberInfo,System.Func{System.Object,System.Object},System.Action{System.Object,System.Object},System.Reflection.MemberTypes,System.Boolean)">
+            <summary>
+            构建一个显示
+            </summary>
+            <param name="memberInfo">反射对象</param>
+            <param name="getValueFunc">获取该值的委托</param>
+            <param name="setValueFunc">设置该值的委托</param>
+            <param name="memberType">该成员的类型</param>
+            <param name="isStatic">本实例是否是静态的</param>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsMemberInfo.GetValue(System.Object)">
+            <summary>
+            获取该值
+            </summary>
+            <param name="instance">要获取的实例, 如果是静态方法则设为 null</param>
+            <returns>目标值</returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsMemberInfo.SetValue(System.Object,System.Object)">
+            <summary>
+            设置该值
+            </summary>
+            <param name="instance">要设置的实例, 如果是静态方法则设为 null</param>
+            <param name="value">要设置的值</param>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsMemberInfo.InvokeMethod(System.Object,System.Object[])">
+            <summary>
+            如果该项是一个方法, 则可以触发该方法, 否则返回 null
+            </summary>
+            <param name="instance">要触发方法的实例， 如果是静态函数则输入null</param>
+            <param name="Parameter">参数</param>
+            <returns>方法结果, 如果触发失败或则是无返回值的方法则返回 null </returns>
+        </member>
+        <member name="M:AsTool.Reflection.AsType.AsMemberInfo.TryGetCustomAttribute(System.Type,System.Attribute@)">
+            <summary>
+            本成员是否包含目标属性
+            </summary>
+            <param name="attributeType">属性</param>
+            <param name="attribute">查找到的目标属性, 如果没有则返回null</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:AsTool.Reflection.ExpressionConstructor.GetCompelConstructExpression(System.Type)">
+            <summary>
+            构建强制构造表达式
+            </summary>
+            <param name="type">要构建的类型</param>
+            <returns>如果找到表达式则返回，否则返回null</returns>
+        </member>
+        <member name="M:AsTool.Reflection.ExpressionConstructor.GetCompelConstructFunction``1">
+            <summary>
+            构建强制构造函数
+            </summary>
+            <typeparam name="T">要构建的类型</typeparam>
+            <returns>如果找到可用的构造函数则返回，否则返回null</returns>
+        </member>
+        <member name="M:AsTool.Reflection.ExpressionConstructor.GetCompelConstructFunction(System.Type)">
+            <summary>
+            构建强制构造函数
+            </summary>
+            <param name="type">要构建的类型</param>
+            <returns>如果找到可用的构造函数则返回，否则返回null</returns>
+        </member>
+        <member name="T:AsLog">
+            <summary>
+            日志工具类
+            </summary>
+        </member>
+        <member name="P:AsLog.LogFilePath">
+            <summary>
+            存放本地Log的文件夹
+            </summary>
+        </member>
+        <member name="F:AsLog._lock">
+            <summary>
+            log的线程锁
+            </summary>
+        </member>
+        <member name="F:AsLog._setter">
+            <summary>
+            当前的Log设置
+            </summary>
+        </member>
+        <member name="M:AsLog.LoadSetter(AsTool.Log.LogUtility.LogSetter)">
+            <summary>
+            加载一个新Log设置，线程安全
+            </summary>
+            <param name="setter">新设置</param>
+        </member>
+        <member name="P:AsLog.Logging">
+            <summary>
+            当Log时间发生时，此委托会被调用
+            </summary>
+        </member>
+        <member name="M:AsLog.Debug(System.Object@,System.String,System.String,System.Int32)">
+            <summary>
+            写入一条Debug信息
+            </summary>
+            <param name="message">要写入的信息</param>
+            <param name="callerName">调用函数的名字</param>
+            <param name="fileName">调用文件的名字</param>
+            <param name="line">调用时的行数</param>
+        </member>
+        <member name="M:AsLog.Infor(System.Object@,System.String,System.String,System.Int32)">
+            <summary>
+            写入一条Infor信息
+            </summary>
+            <param name="message">要写入的信息</param>
+            <param name="callerName">调用函数的名字</param>
+            <param name="fileName">调用文件的名字</param>
+            <param name="line">调用时的行数</param>
+        </member>
+        <member name="M:AsLog.Error(System.Object@,System.String,System.String,System.Int32)">
+            <summary>
+            写入一条Error信息
+            </summary>
+            <param name="message">要写入的信息</param>
+            <param name="callerName">调用函数的名字</param>
+            <param name="fileName">调用文件的名字</param>
+            <param name="line">调用时的行数</param>
+        </member>
+        <member name="M:AsLog.Fatal(System.Object@,System.String,System.String,System.Int32)">
+            <summary>
+            写入一条Fatal信息
+            </summary>
+            <param name="message">要写入的信息</param>
+            <param name="callerName">调用函数的名字</param>
+            <param name="fileName">调用文件的名字</param>
+            <param name="line">调用时的行数</param>
+        </member>
+    </members>
+</doc>

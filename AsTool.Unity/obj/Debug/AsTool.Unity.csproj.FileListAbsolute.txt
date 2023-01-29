@@ -1,0 +1,13 @@
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\bin\Debug\AsTool.Unity.dll
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\bin\Debug\AsTool.Unity.pdb
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\bin\Debug\AsTool.dll
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\bin\Debug\AsTool.pdb
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\bin\Debug\AsTool.xml
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\obj\Debug\AsTool.Unity.csproj.AssemblyReference.cache
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\obj\Debug\AsTool.Unity.csproj.CoreCompileInputs.cache
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\obj\Debug\AsTool.Unity.csproj.CopyComplete
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\obj\Debug\AsTool.Unity.dll
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool.Unity\obj\Debug\AsTool.Unity.pdb
+E:\DataForIDE\2022_ONI\AsTool\Currnent\AsTool.Unity.xml
+E:\DataForIDE\2022_ONI\AsTool\Currnent\AsTool.Unity.dll
+E:\DataForIDE\2022_ONI\AsTool\Currnent\AsTool.Unity.pdb

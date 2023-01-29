@@ -1,0 +1,6 @@
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool\bin\Release\AsTool.dll
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool\bin\Release\AsTool.pdb
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool\obj\Release\AsTool.csproj.AssemblyReference.cache
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool\obj\Release\AsTool.csproj.CoreCompileInputs.cache
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool\obj\Release\AsTool.dll
+E:\DataForIDE\2022_ONI\AsTool\3\AsTool\obj\Release\AsTool.pdb
